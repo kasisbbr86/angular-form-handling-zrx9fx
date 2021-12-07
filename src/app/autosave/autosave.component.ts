@@ -40,7 +40,7 @@ export class AutosaveComponent implements OnInit, OnDestroy {
       )
       .subscribe((value) => {
         console.log('subscribed: ' + value);
-        this.savingStatus = 'saved';
+        this.savingStatus = value;
       });
   }
 

@@ -23,6 +23,7 @@ export class AutosaveComponent implements OnInit, OnDestroy {
   formGroup = this._fb.group({
     name: ['', [Validators.required]],
     address: ['', [Validators.required]],
+    location: [''],
     // password: ["", [Validators.required, Validators.minLength(8)]]
   });
 

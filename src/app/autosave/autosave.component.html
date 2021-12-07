@@ -28,6 +28,14 @@
       >
         Required
       </div>
+
+      <label for="locationInput" class="form-label">Location</label>
+      <input
+        class="form-control"
+        id="locationInput"
+        type="text"
+        formControlName="location"
+      />
     </div>
     <div class="col-12">
       <button type="button" [disabled]="formGroup.invalid">Next section</button>

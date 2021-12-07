@@ -1,0 +1,21 @@
+<form class="form-group" [formGroup]="formGroup" #form="ngForm" (ngSubmit)="save(form)">
+	Email: <input class="form-control" type="text" formControlName="email" />
+	<div *ngIf="(form.submitted || formGroup.get('email').touched) && formGroup.get('email').hasError('required')">
+		Required
+	</div>
+	<div *ngIf="(form.submitted || formGroup.get('email').touched) && formGroup.get('email').hasError('email')">
+		Email pattern
+	</div>
+	<div *ngIf="(form.submitted || formGroup.get('email').touched) && formGroup.get('email').hasError('domainError')">
+		Email exists
+	</div>
+
+	<button type="submit" [disabled]="formGroup.status === 'PENDING'">Next</button>
+</form>
+
+<div>Valid: {{ formGroup.valid}}</div>
+<div>Value: {{ formGroup.value | json}}</div>
+<div>Pristine: {{ formGroup.pristine | json}}</div>
+<div>Submitted:{{ form.submitted | json}}</div>
+<div>Email errors: {{ formGroup.get('email')?.errors | json}}</div>
+<div>PW errors: {{ formGroup.get('password')?.errors | json}}</div>

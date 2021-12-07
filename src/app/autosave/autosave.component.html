@@ -1,0 +1,36 @@
+<form class="p-4" [formGroup]="formGroup" #form="ngForm">
+  <div class="form-row">
+    <div class="col-12 mb-3">
+      <label for="nameInput" class="form-label">Name</label>
+      <input
+        class="form-control"
+        id="nameInput"
+        type="text"
+        formControlName="name"
+      />
+      <div
+        class="invalid-feedback d-block"
+        *ngIf="formGroup.get('name').hasError('required')"
+      >
+        Required
+      </div>
+
+      <label for="AddressInput" class="form-label">Address</label>
+      <input
+        class="form-control"
+        id="AddressInput"
+        type="text"
+        formControlName="address"
+      />
+      <div
+        class="invalid-feedback d-block"
+        *ngIf="formGroup.get('address').hasError('required')"
+      >
+        Required
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="button" [disabled]="formGroup.invalid">Next section</button>
+    </div>
+  </div>
+</form>

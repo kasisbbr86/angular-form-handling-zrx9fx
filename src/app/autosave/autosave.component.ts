@@ -19,6 +19,7 @@ import {
 })
 export class AutosaveComponent implements OnInit, OnDestroy {
   private _destroy$ = new Subject<void>();
+  savingStatus: string;
 
   formGroup = this._fb.group({
     name: ['', [Validators.required]],
@@ -39,10 +40,12 @@ export class AutosaveComponent implements OnInit, OnDestroy {
       )
       .subscribe((value) => {
         console.log('subscribed: ' + value);
+        this.savingStatus = 'saved';
       });
   }
 
   save(value) {
+    this.savingStatus = 'saving..';
     console.log(this.formGroup.dirty);
     console.log(this.formGroup.status);
     if (this.formGroup !== undefined && this.formGroup?.status === 'VALID') {
